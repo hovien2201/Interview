@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .containerr {
+            background-image: url("https://www.shutterstock.com/shutterstock/videos/31554181/thumb/1.jpg?ip=x480");
+            width:1000px;
+    max-width: 100%;
+    margin:auto;
+    margin: 20% 50 30 20%;
+	margin-top: 5%;
+   font-family: 'Montserrat', sans-serif;
+   min-height:80vh;
+   max-height:80vh;
+   color:#fff;
+   display:flex;
+   flex-direction:column;
+   a {
+      color:inherit;
+      &:not(:hover) {
+         text-decoration:none;
+      }
+   }
+
+   background: #222222;
+   background: -webkit-linear-gradient(to top, #232526, #414345);
+   #link-a-me {
+      position: absolute;
+      bottom:80px;
+      right:20px;
+      height:60px;
+      width:60px;
+      background:url(https://i.imgur.com/xoxkq1r.png);
+      background-size:cover;
+      z-index:1;
+      animation: pop-in 120s ease-out;
+   }
+   .content {
+      overflow:hidden;
+      flex-grow:1;
+      height:calc(100% - 80px);
+      .lyrics {
+         padding:20vh 0;
+         min-height:calc(100vh - 80px);
+         width:calc(100% - 40px);
+         margin:0 20px;
+         text-align:center;
+         transition: all .25s;
+         position: relative;
+         >div {
+            position: relative;
+            font-size:40px;
+            line-height:80px;
+            color:#666;
+            transition: all .25s;
+            &:before {
+               content:attr(note);
+               position: absolute;
+               top:0px;
+               left:50%;
+               transform:translate(-50%,-50%);
+               font-size:18px;
+            }
+            &.highlighted {
+               color:#fff;
+               font-size:48px;
+            }
+         }
+      }
+   }
+   .player {
+      z-index:10;
+      background: #F9F9F9;
+      color:#000;
+      min-height:80px;
+      max-height:80px;
+      display:flex;
+      flex-direction:row;
+      .left {
+         width:80px;
+         background-image:url(https://i.scdn.co/image/9ca53beeb365f468b023a8360634f309325b5487);
+         background-size:cover;
+      }
+      .right {
+         flex-grow:1;
+         display:flex;
+         flex-direction:column;
+         .top {
+            flex-grow:1;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            padding-left:10px;
+            .song {
+               font-size:1.2em;
+               font-weight:600;
+            }
+         }
+         .bottom {
+            display:flex;
+            video {
+               flex-grow:1;
+               height:32px;
+            }
+         }
+      }
+   }
+}
+
+@keyframes pop-in {
+   0%, 95%{
+      transform:translateY(100%);
+   }
+   100%{
+      transform:translateY(0%);
+   }
+}
+
+
+    </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <div class="containerr">
+
+    <div class="content">
+        <div class="lyrics"></div>
+     </div>
+     
+     <div class="player">
+        <video style="width: 100%;" controls="" _autoplay="" name="media"><source src="https://storage.googleapis.com/ikara-storage/tmp/beat.mp3" type="audio/mpeg"></video>
+
+        
+     </div>
+    </div>
+
+     <script>
+        console.clear();
+var _data = JSON.parse(`{
+		"lyrics": [
+					 {
+"line": "Hồn lỡ sa vào đôi mắt em",
+"time": "35.144"
+},
+{
+"line": "Chiều nào xõa tóc ngồi bên rèm",
+"time": "42.641"
+},
+ {
+"line": "Thầm ước nhưng nào đâu dám nói",
+"time": "49.276"
+},
+ {
+"line": "Khép tâm tư lại thôi",
+"time": "53.325"
+},
+ {
+"line": "Đường hoa vẫn chưa mở lối",
+"time": "56.669"
+},
+ {
+"line": "Đời lắm phong trần, tay trắng tay",
+"time": "62.572"
+},
+ {
+"line": "Trời đông ngại gió lùa vai gầy",
+"time": "69.26"
+},
+ {
+"line": "Lầu kín trăng về, không lối chiếu",
+"time": "75.973"
+},
+{
+"line": "Gác cao ngăn niềm yêu",
+"time": "80.100006"
+},
+{
+"line": "Bên nhau sao tình xa, vạn lý cách biệt mấy sơn khê",
+"time": "91.411"
+},
+{
+"line": "Ngày đi mắt em xanh biển sâu, mắt tôi rưng rưng sầu",
+"time": "101.233"
+},
+{
+"line": "Lặng nghe tiếng pháo tiễn ai qua cầu",
+"time": "110.455"
+},
+{
+"line": "Đường phố muôn màu sao thiếu em",
+"time": "115.496"
+},
+{
+"line": "Về đâu làn tóc xõa bên rèm",
+"time": "122.628006"
+},
+{
+"line": "Lầu vắng không người song khép kín",
+"time": "129.263"
+},
+{
+"line": "Nhớ em tôi gọi tên, chỉ nghe tiếng lá rơi thềm",
+"time": "133.46901"
+},
+{
+"time": "141.144",
+"line": "..."
+},
+{
+"line": "Bên nhau sao tình xa, vạn lý cách biệt mấy sơn khê",
+"time": "168.10701"
+},
+{
+"line": "Ngày đi mắt em xanh biển sâu, mắt tôi rưng rưng sầu",
+"time": "177.981"
+},
+{
+"line": "Lặng nghe tiếng pháo tiễn ai qua cầu",
+"time": "187.15001"
+},
+{
+"line": "Đường phố muôn màu sao thiếu em",
+"time": "192.479"
+},
+{
+"line": "Về đâu làn tóc xõa bên rèm",
+"time": "199.271"
+},
+{
+"line": "Lầu vắng không người song khép kín",
+"time": "205.932"
+},
+{
+"line": "Nhớ em tôi gọi tên, chỉ nghe tiếng lá rơi thềm",
+"time": "210.033"
+},
+{
+"line": "Lầu vắng không người song khép kín",
+"time": "219.307"
+},
+{
+"line": "Nhớ em tôi gọi tên, chỉ nghe tiếng lá rơi thềm",
+"time": "223.513"
+}
+		]
+	
+}`);
+var currentLine = "";
+
+function align() {
+   var a = $(".highlighted").height();
+   var c = $(".content").height();
+   var d = $(".highlighted").offset().top - $(".highlighted").parent().offset().top;
+   var e = d + (a/2) - (c/2);
+   $(".content").animate(
+       {scrollTop: e + "px"}, {easing: "swing", duration: 250}
+   );
+}
+
+var lyricHeight = $(".lyrics").height();
+$(window).on("resize", function() {
+   if ($(".lyrics").height() != lyricHeight) { 
+      lyricHeight = $(".lyrics").height();
+      align();
+   }
+});
+
+$(document).ready(function(){
+   $("video").on('timeupdate', function(e){
+      var time = this.currentTime*1;
+      var past = _data["lyrics"].filter(function (item) {
+         return item.time < time;
+      });
+      if (_data["lyrics"][past.length] != currentLine) {
+         currentLine = _data["lyrics"][past.length];
+         $(".lyrics div").removeClass("highlighted");
+         $(`.lyrics div:nth-child(${past.length})`).addClass("highlighted"); 
+         align();
+      }
+   });
+});
+
+generate();
+
+function generate() {
+   var html = "";
+   for(var i = 0; i < _data["lyrics"].length; i++) {
+      html += "<div";
+      if(i == 0) {
+         html+=` class="highlighted"`;
+         currentLine = 0;
+      }
+      if(_data["lyrics"][i]["note"]) {
+         html += ` note="${_data["lyrics"][i]["note"]}"`;
+      }
+      html += ">";
+      html += _data["lyrics"][i]["line"] == "" ? "•" : _data["lyrics"][i]["line"] ;
+      html += "</div>"
+   }
+   $(".lyrics").html(html);
+   align();
+}
+     </script>
+</body>
+</html>
